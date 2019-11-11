@@ -10,6 +10,8 @@ const upload = document.getElementById('upload'),
     content = document.getElementById('content'),
     text = document.getElementById('text');
 
+const API_URL = 'http://a197dcbcaa43111e9985606b182dacc2-0e4bd8d2e4f0ba4b.elb.us-west-2.amazonaws.com/demo/v1/portal-style/apply';
+
 let currentCanvas, currentImgData;
 
 // image load event
@@ -22,7 +24,7 @@ submit.addEventListener('click', function() {
     spinner.style.display = 'block';
     // disable submit button
     submit.setAttribute('disabled', 'disabled');
-    submitCanvas(currentCanvas, '/upload', 'image/jpeg', displayResult);
+    submitCanvas(currentCanvas, 'starry_night', API_URL, 'image/jpeg', displayResult);
 });
 
 // download event

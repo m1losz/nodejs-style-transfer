@@ -141,10 +141,15 @@ function drawOnCanvas(fileList, width, height, cb) {
     imgObj.src = imgData;
 }
 
-function submitCanvas(canvas, url, type, cb) {
+function submitCanvas(canvas, style, url, type, cb) {
     let file = canvas.toDataURL(type);
     let formData = new FormData;
     formData.append('image', file);
+
+    let req = {
+        'image': file,
+        'style': style
+    }
 
     let xhr = new XMLHttpRequest();
     xhr.open('POST', url, true);
@@ -159,7 +164,7 @@ function submitCanvas(canvas, url, type, cb) {
     xhr.onerror = function() {
         cb(new Error("Opps! Something failed, please re-try"));
     };
-    xhr.send(formData);
+    xhr.send(JSON.stringify(req));
 }
 
 /**

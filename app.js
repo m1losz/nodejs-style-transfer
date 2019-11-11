@@ -13,7 +13,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // app routes
-const styleRouter = require('./routes/style');
-app.use('/', styleRouter);
+// const styleRouter = require('./routes/style');
+// app.use('/', styleRouter);
 
 module.exports = app;
