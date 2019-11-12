@@ -143,28 +143,21 @@ function drawOnCanvas(fileList, width, height, cb) {
 
 function submitCanvas(canvas, style, url, type, cb) {
     let file = canvas.toDataURL(type);
-    let formData = new FormData;
-    formData.append('image', file);
 
-    let req = {
-        'image': file,
-        'style': style
-    }
+    const params = new URLSearchParams();
+    params.append('image', file);
+    params.append('style', style);
 
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST', url, true);
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            cb(null, xhr.responseText);
-        } else {
-            cb(new Error(xhr.responseText));
-        }
-    };
-    xhr.timeout = 10000;
-    xhr.onerror = function() {
-        cb(new Error("Opps! Something failed, please re-try"));
-    };
-    xhr.send(JSON.stringify(req));
+    axios.post(url, params, cb)
+    .then((response) => {
+        //console.log(response.data)
+        cb(null, response.data); 
+     }, (error) => {
+        console.log(error)
+        cb(new Error(error.toString()));
+    });
+
+
 }
 
 /**

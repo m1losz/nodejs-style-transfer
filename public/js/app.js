@@ -10,7 +10,7 @@ const upload = document.getElementById('upload'),
     content = document.getElementById('content'),
     text = document.getElementById('text');
 
-const API_URL = 'http://a197dcbcaa43111e9985606b182dacc2-0e4bd8d2e4f0ba4b.elb.us-west-2.amazonaws.com/demo/v1/portal-style/apply';
+const API_URL = 'http://a197dcbcaa43111e9985606b182dacc2-0e4bd8d2e4f0ba4b.elb.us-west-2.amazonaws.com/demo/v1/style/apply';
 
 let currentCanvas, currentImgData;
 
