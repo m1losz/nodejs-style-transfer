@@ -1,6 +1,6 @@
 // limit canvas area
-const MAX_WIDTH = 224,
-    MAX_HEIGHT = 224;
+const MAX_WIDTH = 512,
+    MAX_HEIGHT = 512;
 
 // our html elements
 const upload = document.getElementById('upload'),
@@ -49,7 +49,7 @@ function checkColorOption(checkbox)
     {
         return currentOptions.preserve_color = true;
     }
-    
+
     return currentOptions.preserve_color = false;
 }
 

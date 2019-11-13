@@ -10,8 +10,8 @@ a {
 
 #img-area {
     display: inline-block;
-    width: 224px;
-    height: 224px;
+    width: 512px;
+    height: 512px;
     border: 7px solid #98ffca;
     border-radius: 6px;
     position: relative;

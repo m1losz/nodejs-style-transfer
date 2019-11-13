@@ -149,8 +149,18 @@ function submitCanvas(url, canvas, style, type, options, cb) {
         //console.log(response.data)
         cb(null, response.data); 
      }, (error) => {
-        console.log(error)
-        cb(new Error(error.toString()));
+        console.log(error.response.data)
+        if (error.response) {
+            return cb(error.response.data)
+        } else if (error.request) {
+        // The request was made but no response was received
+        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+        // http.ClientRequest in node.js
+            return cb(error.request)
+        } else {
+        // Something happened in setting up the request that triggered an Error
+            return cb(error)
+        }
     });
 
 
