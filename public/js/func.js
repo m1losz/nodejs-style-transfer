@@ -149,8 +149,8 @@ function submitCanvas(url, canvas, style, type, options, cb) {
         //console.log(response.data)
         cb(null, response.data); 
      }, (error) => {
-        console.log(error.response.data)
         if (error.response) {
+            console.log(error.response.data)
             return cb(error.response.data)
         } else if (error.request) {
         // The request was made but no response was received
