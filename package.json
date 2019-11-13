@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-style-transfer",
+  "name": "style-transfer",
   "description": "Sample node.js app for image style transfer",
   "version": "0.0.1",
   "scripts": {

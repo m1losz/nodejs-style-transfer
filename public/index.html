@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Node.JS Fast Style Transfer Demo</title>
+    <title>Fast Style Transfer Demo</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<h1>Node.JS Fast Style Transfer Demo</h1>
+<h1>Fast Style Transfer Demo</h1>
 
 <div id="img-area">
     <div id="content"></div>
@@ -22,13 +22,28 @@
 
 <br>
 
+<select id="style_selector">
+  <option value="Candy" selected="selected">Candy</option>
+  <option value="Mosaic">Mosaic</option>
+  <option value="Udnie">Udnie</option>
+  <option value="rain_princess">rain_princess</option>
+  <option value="Galaofspheres">Galaofspheres</option>
+  <option value="Pacman">Pacman</option>
+  <option value="Starry_Night">Starry_Night</option>
+  <option value="The_scream">The_scream</option>
+  <option value="The_Great_Wave_off_kanagawa">The_Great_Wave_off_kanagawa</option>
+  <option value="Boy_with_pipe">Boy_with_pipe</option>
+</select>
+<input type="checkbox" name="checkColorOption" onclick="checkColorOption(this)" />Preserve Color?<br>
+
+
 <button id="submit" disabled="disabled">Apply Style</button>
 <button id="download" disabled="disabled">Download</button>
 
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
 
 <script src="js/func.js"></script>
 <script src="js/app.js"></script>

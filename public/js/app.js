@@ -10,9 +10,14 @@ const upload = document.getElementById('upload'),
     content = document.getElementById('content'),
     text = document.getElementById('text');
 
+const style_selector = document.getElementById("style_selector");
+
 const API_URL = 'http://a197dcbcaa43111e9985606b182dacc2-0e4bd8d2e4f0ba4b.elb.us-west-2.amazonaws.com/demo/v1/style/apply';
 
 let currentCanvas, currentImgData;
+let currentStyle = "Candy";
+let currentOptions = {"preserve_color": false}
+
 
 // image load event
 upload.addEventListener('change', function (e) {
@@ -24,13 +29,29 @@ submit.addEventListener('click', function() {
     spinner.style.display = 'block';
     // disable submit button
     submit.setAttribute('disabled', 'disabled');
-    submitCanvas(currentCanvas, 'starry_night', API_URL, 'image/jpeg', displayResult);
+    currentStyle = getSelectedStyle();
+
+    submitCanvas(API_URL, currentCanvas, currentStyle, 'image/jpeg', currentOptions, displayResult);
 });
 
 // download event
 download.addEventListener('click', function() {
     downloadURI(currentImgData, 'image.jpg');
 });
+
+function getSelectedStyle(){
+    return style_selector.options[style_selector.selectedIndex].text;
+}
+
+function checkColorOption(checkbox)
+{
+    if (checkbox.checked)
+    {
+        return currentOptions.preserve_color = true;
+    }
+    
+    return currentOptions.preserve_color = false;
+}
 
 function displayResult(err, dataURI) {
     // stop spinner :)

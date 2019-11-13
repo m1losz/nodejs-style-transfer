@@ -141,14 +141,10 @@ function drawOnCanvas(fileList, width, height, cb) {
     imgObj.src = imgData;
 }
 
-function submitCanvas(canvas, style, url, type, cb) {
-    let file = canvas.toDataURL(type);
+function submitCanvas(url, canvas, style, type, options, cb) {
+    let image = canvas.toDataURL(type);
 
-    const params = new URLSearchParams();
-    params.append('image', file);
-    params.append('style', style);
-
-    axios.post(url, params, cb)
+    axios.post(url, {image, style, options}, cb)
     .then((response) => {
         //console.log(response.data)
         cb(null, response.data); 
